@@ -1,12 +1,15 @@
 package fr.esgi.rent_car.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
 
 @Data
 @Entity (name = "utilisateur")
@@ -22,14 +25,18 @@ public class User {
     private String id;
 
     @Column
+    @NotNull(message = "First name is required")
     private String firstName;
 
     @Column
+    @NotNull(message = "last name is required")
     private String lastName;
 
     @Column
+    @NotNull(message = "password is required")
     private String password;
 
     @Column
+    @NotNull(message = "email is required")
     private String email;
 }

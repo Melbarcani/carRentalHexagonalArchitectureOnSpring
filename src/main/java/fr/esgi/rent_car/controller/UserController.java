@@ -19,9 +19,4 @@ public class UserController {
     public ResponseEntity<List<User>> findAll(){
         return new ResponseEntity<User>(userService.findAll());
     }*/
-
-    @PostMapping("/signup")
-    public ResponseEntity<User> create(@RequestBody User user){
-        return new ResponseEntity<>(userService.create(user), HttpStatus.OK);
-    }
 }

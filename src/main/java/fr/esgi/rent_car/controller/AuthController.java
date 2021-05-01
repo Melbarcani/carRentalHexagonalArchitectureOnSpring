@@ -17,4 +17,7 @@ public class AuthController {
     public ResponseEntity<User> create(@RequestBody User user){
         return new ResponseEntity<>(userService.create(user), HttpStatus.OK);
     }
+
+    @PostMapping("/login")
+    public ResponseEntity
 }
