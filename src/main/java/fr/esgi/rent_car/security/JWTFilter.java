@@ -10,7 +10,8 @@ import java.io.IOException;
 
 public class JWTFilter extends OncePerRequestFilter {
     @Override
-    protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
-        regarder les 2 github
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+        doFilter(request, response, filterChain);
+        //regarder les 2 github
     }
 }

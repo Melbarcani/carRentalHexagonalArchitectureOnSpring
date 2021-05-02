@@ -4,6 +4,9 @@ import fr.esgi.rent_car.exception.ConflictException;
 import fr.esgi.rent_car.model.User;
 import fr.esgi.rent_car.repository.UserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
