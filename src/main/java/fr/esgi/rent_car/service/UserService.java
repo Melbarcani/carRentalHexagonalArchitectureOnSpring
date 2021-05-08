@@ -9,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -17,17 +18,18 @@ public class UserService {
     private final UserRepository userRepository;
 
     public User create(User user){
-        if(findUserByEmail(user.getEmail()).isEmpty()){
-            return userRepository.save(user);
-        }
-        throw new ConflictException("This email is already used by an other user");
+        return userRepository.save(user);
     }
 
     public Optional<User> findUserByEmail(String email){
         return userRepository.findByEmail(email);
     }
 
-    public void findAll(){
-        userRepository.findAll();
+    public User findById(String id){
+        return userRepository.findById(id).get();
+    }
+
+    public List<User> findAll(){
+        return userRepository.findAll();
     }
 }

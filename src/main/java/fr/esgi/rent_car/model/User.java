@@ -1,6 +1,7 @@
 package fr.esgi.rent_car.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
@@ -12,10 +13,9 @@ import java.time.LocalDate;
 
 @Data
 @Entity (name = "utilisateur")
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
-
-
-
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
@@ -25,7 +25,7 @@ public class User {
     @Column(updatable = false, nullable = false)
     private String id;
 
-    @Column
+    @Column(unique = true)
     @NotNull(message = "Email is required")
     private String email;
 
@@ -52,4 +52,13 @@ public class User {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Role role = Role.USER;
+
+    public User(String firstName, String lastName, String email, String userName, String password, LocalDate birthDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.userName = userName;
+        this.password = password;
+        this.birthDate = birthDate;
+    }
 }

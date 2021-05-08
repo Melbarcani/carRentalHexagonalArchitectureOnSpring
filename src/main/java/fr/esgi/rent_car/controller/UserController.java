@@ -15,8 +15,13 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
 
-    /*@GetMapping
+    @GetMapping
     public ResponseEntity<List<User>> findAll(){
-        return new ResponseEntity<User>(userService.findAll());
-    }*/
+        return new ResponseEntity(userService.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<User> findById(@PathVariable String id){
+        return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
+    }
 }
