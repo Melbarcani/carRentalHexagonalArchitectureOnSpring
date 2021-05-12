@@ -36,6 +36,4 @@ public class AuthController {
         var login = new Login(loginDto.getEmail(), loginDto.getPassword());
         return new ResponseEntity<>(authService.createSession(login), HttpStatus.OK);
     }
-
-
 }
