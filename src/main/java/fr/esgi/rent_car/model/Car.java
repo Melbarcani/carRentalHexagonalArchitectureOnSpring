@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Data
-@Entity (name = "voiture")
+@Entity (name = "car")
 public class Car {
 
     @Id
@@ -23,38 +23,38 @@ public class Car {
     private String id;
 
     @Column
-    private String idOwner;
+    private String idowner;
 
     @Column
     private String description;
 
     @Column
-    private String localisation;
+    private String location;
 
     @Column
-    private String localisationCP;
+    private String location_cp;
 
     @Column
-    private String immatriculation;
+    private String registration;
 
     @Column
-    private Double kilometrage;
+    private Double mileage;
 
     @Column
-    private String marque;
+    private String mark;
 
     @Column
-    private String moteur;
+    private String engine;
 
     @Column
-    private Double prix_jour;
+    private Double price_day;
 
     @Column
-    private String kilometrage_max;
+    private String mileage_max;
 
     @Column
-    private Date date_debut;
+    private Date start_date;
 
     @Column
-    private Date date_fin;
+    private Date end_date;
 }

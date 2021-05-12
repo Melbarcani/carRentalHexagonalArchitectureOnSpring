@@ -15,14 +15,21 @@ public class CarService {
 
     public Car createCar(Car car){ return this.carRepository.save(car); }
 
-    public Optional<Car> findById(String id){return this.carRepository.findById(id);}
+    public Optional<Car> findById(String id){return this.carRepository.findCarById(id);}
 
-    public List<Car>  findByMarque(String marque){return this.carRepository.findByMarque(marque);}
+    public List<Car> findByMarque(String mark){return this.carRepository.findCarByMark(mark);}
 
-    public List<Car>  findByLocalisation(String localisation){return this.carRepository.findByLocalisation(localisation);}
+    public List<Car> findByLocation(String location){return this.carRepository.findCarByLocation(location);}
 
-    public List<Car>  findByOwner(String owner){return this.carRepository.findByIdOwner(owner);}
+    public List<Car> findByOwner(String owner){return this.carRepository.findCarById_owner(owner);}
 
     public List<Car> findAll(){return this.carRepository.findAll();}
 
+    public void deleteCar(String id) { this.carRepository.deleteCarById(id); }
+
+    public Car update(Car car){
+        Car carToUpdate = this.carRepository.getOne(car.getId());
+        carToUpdate.setMileage(car.getMileage());
+        return this.carRepository.save(carToUpdate);
+    }
 }

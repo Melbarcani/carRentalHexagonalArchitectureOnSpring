@@ -27,13 +27,15 @@ public class CarController {
     @PostMapping("/{id}")
     public Optional<Car> findById(@PathVariable String id){return carService.findById(id);}
 
-    @PostMapping("/marque/{marque}")
-    public List<Car> findByMarque(@PathVariable String marque){return carService.findByMarque(marque);}
+    @PostMapping("/marque/{mark}")
+    public List<Car> findByMark(@PathVariable String mark){return carService.findByMarque(mark);}
 
     @PostMapping("/owner/{idOwner}")
-    public List<Car> findByOwner(@PathVariable String idOwner){return carService.findByOwner(idOwner);}
+    public List<Car>  findByOwner(@PathVariable String idOwner){return carService.findByOwner(idOwner);}
 
     @PostMapping("/localisation/{localisation}")
-    public List<Car> findByLocalisation(@PathVariable String localisation){return carService.findByLocalisation(localisation);}
+    public List<Car> findByLocation(@PathVariable String location){return carService.findByLocation(location);}
 
+    @PostMapping("/delete")
+    public void deleteCarById(@RequestBody String id){ carService.deleteCar(id); }
 }
