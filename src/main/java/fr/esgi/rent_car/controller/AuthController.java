@@ -7,16 +7,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/auth")
 @AllArgsConstructor
-public class UserController {
+public class AuthController {
     private final UserService userService;
 
-    /*@GetMapping
-    public ResponseEntity<List<User>> findAll(){
-        return new ResponseEntity<User>(userService.findAll());
-    }*/
+    @PostMapping("/signup")
+    public ResponseEntity<User> create(@RequestBody User user){
+        return new ResponseEntity<>(userService.create(user), HttpStatus.OK);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity
 }
