@@ -12,7 +12,7 @@ public interface CarRepository extends JpaRepository<Car,Long> {
     Optional<Car> findById(String id);
     List<Car> findByMarque(String marque);
     List<Car> findByLocalisation(String localisation);
-    List<Car> findById_owner(String owner);
+    List<Car> findByIdOwner(String idOwner);
 
     List<Car> findAll();
 

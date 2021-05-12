@@ -23,7 +23,7 @@ public class Car {
     private String id;
 
     @Column
-    private String id_owner;
+    private String idOwner;
 
     @Column
     private String description;

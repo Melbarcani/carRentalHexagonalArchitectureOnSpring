@@ -21,7 +21,7 @@ public class CarService {
 
     public List<Car>  findByLocalisation(String localisation){return this.carRepository.findByLocalisation(localisation);}
 
-    public List<Car>  findByOwner(String owner){return this.carRepository.findById_owner(owner);}
+    public List<Car>  findByOwner(String owner){return this.carRepository.findByIdOwner(owner);}
 
     public List<Car> findAll(){return this.carRepository.findAll();}
 
