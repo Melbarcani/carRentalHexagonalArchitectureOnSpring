@@ -16,17 +16,6 @@ import java.util.Optional;
 public class UserService {
     private UserRepository userRepository;
 
-    public User create(User user){
-        if(findUserByEmail(user.getEmail()).isEmpty()){
-            return userRepository.save(user);
-        }
-        throw new ConflictException("This email is already used by an other user");
-    }
-
-    public Optional<User> findUserByEmail(String email){
-        return userRepository.findByEmail(email);
-    }
-
     public User findById(String id){
         return userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User Id unfounded"));
     }

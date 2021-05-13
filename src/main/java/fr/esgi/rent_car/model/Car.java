@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Data
-@Entity (name = "voiture")
+@Entity
 public class Car {
 
     @Id

@@ -1,25 +1,16 @@
 package fr.esgi.rent_car.service;
 
-import fr.esgi.rent_car.dto.UserDto;
-import fr.esgi.rent_car.model.Login;
-import fr.esgi.rent_car.model.Session;
 import fr.esgi.rent_car.model.User;
 import fr.esgi.rent_car.repository.SessionRepository;
 import fr.esgi.rent_car.repository.UserRepository;
 import fr.esgi.rent_car.security.TokenProvider;
-import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDate;
-import java.util.Optional;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
 
 public class AuthServiceTest {
     private AuthService authService;
@@ -42,7 +33,6 @@ public class AuthServiceTest {
     @BeforeEach
     void init() {
         tokenProvider = mock(TokenProvider.class);
-        authenticationManagerBuilder = mock(AuthenticationManagerBuilder.class);
         userRepository = mock(UserRepository.class);
         sessionRepository = mock(SessionRepository.class);
         passwordEncoder = mock(PasswordEncoder.class);
@@ -66,14 +56,20 @@ public class AuthServiceTest {
         );
     }
 
-    @Test
-    void createSessionTest() {
-        /*when(tokenProvider.createToken(any())).thenReturn(TOKEN);
+    /*@Test
+    void createSessionTest() throws Exception {
+        when(tokenProvider.createToken(any())).thenReturn(TOKEN);
         User user = createUser();
         Login login = new Login(EMAIL_FOR_TEST, PASSWORD_FOR_TEST);
         AuthenticationManager authenticationManager = mock(AuthenticationManager.class);
-        when(authenticationManagerBuilder.getObject()).thenReturn(authenticationManager);
-        when(authenticationManagerBuilder.getObject().authenticate());
+        var authenticationToken = new UsernamePasswordAuthenticationToken(
+                login.getEmail(), login.getPassword()
+        );
+        ObjectPostProcessor<Object> opp = mock(ObjectPostProcessor.class);
+        AuthenticationManagerBuilder builder = mock(AuthenticationManagerBuilder.class);
+        AuthenticationProvider provider = mock(AuthenticationProvider.class);
+        builder.objectPostProcessor(opp);
+        builder.authenticationProvider(provider);
 
         authService.createSession(login);
 
@@ -81,6 +77,6 @@ public class AuthServiceTest {
                 .findByEmail(login.getEmail());
 
         Mockito.verify(sessionRepository, times(1))
-                .save(new Session(user.getId(), null, TOKEN, user));*/
-    }
+                .save(new Session(user.getId(), null, TOKEN, user));
+    }*/
 }

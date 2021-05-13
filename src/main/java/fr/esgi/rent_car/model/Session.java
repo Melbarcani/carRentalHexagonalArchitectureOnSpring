@@ -8,7 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
-@Entity(name ="session")
+@Entity
 @Data
 public class Session {
     @Id
