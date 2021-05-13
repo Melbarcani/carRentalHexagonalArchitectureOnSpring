@@ -16,7 +16,7 @@ import javax.persistence.Id;
 
 
 @Data
-@Entity
+@Entity (name = "user")
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
@@ -35,7 +35,7 @@ public class User {
 
     @Column(unique = true, nullable = false)
     @NotNull(message = "Username is required")
-    private String userName;
+    private String username;
 
     @Column
     @NotNull(message = "Password is required")
@@ -43,26 +43,26 @@ public class User {
 
     @Column
     @NotNull(message = "First name is required")
-    private String firstName;
+    private String firstname;
 
     @Column
     @NotNull(message = "Last name is required")
-    private String lastName;
+    private String lastname;
 
     @Column(nullable = false)
     @NotNull(message = "Birthday is required")
-    private LocalDate birthDate;
+    private LocalDate birthdate;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Role role = Role.USER;
 
     public User(String firstName, String lastName, String email, String userName, String password, LocalDate birthDate) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstname = firstName;
+        this.lastname = lastName;
         this.email = email;
-        this.userName = userName;
+        this.username = userName;
         this.password = password;
-        this.birthDate = birthDate;
+        this.birthdate = birthDate;
     }
 }
