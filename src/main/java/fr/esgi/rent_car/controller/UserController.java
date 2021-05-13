@@ -1,6 +1,6 @@
 package fr.esgi.rent_car.controller;
 
-import fr.esgi.rent_car.model.User;
+import fr.esgi.rent_car.model.Users;
 import fr.esgi.rent_car.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,12 +16,12 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping
-    public ResponseEntity<List<User>> findAll(){
+    public ResponseEntity<List<Users>> findAll(){
         return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> findById(@PathVariable String id){
+    public ResponseEntity<Users> findById(@PathVariable String id){
         return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
     }
 }

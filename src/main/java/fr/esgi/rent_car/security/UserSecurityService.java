@@ -1,12 +1,9 @@
 package fr.esgi.rent_car.security;
 
 import fr.esgi.rent_car.exception.ResourceNotFoundException;
-import fr.esgi.rent_car.model.User;
 import fr.esgi.rent_car.repository.UserRepository;
-import fr.esgi.rent_car.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
-import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

@@ -16,10 +16,10 @@ import javax.persistence.Id;
 
 
 @Data
-@Entity
+@Entity(name = "users")
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Users {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
@@ -57,7 +57,7 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role = Role.USER;
 
-    public User(String firstName, String lastName, String email, String userName, String password, LocalDate birthDate) {
+    public Users(String firstName, String lastName, String email, String userName, String password, LocalDate birthDate) {
         this.firstname = firstName;
         this.lastname = lastName;
         this.email = email;

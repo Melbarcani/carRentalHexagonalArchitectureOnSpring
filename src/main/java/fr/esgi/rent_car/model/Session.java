@@ -1,11 +1,9 @@
 package fr.esgi.rent_car.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
@@ -24,9 +22,9 @@ public class Session {
     private String token;
 
     @ManyToOne
-    private User user;
+    private Users user;
 
-    public Session(String id, LocalDateTime createdAt, String token, User user) {
+    public Session(String id, LocalDateTime createdAt, String token, Users user) {
         this.id = id;
         this.createdAt = createdAt;
         this.token = token;

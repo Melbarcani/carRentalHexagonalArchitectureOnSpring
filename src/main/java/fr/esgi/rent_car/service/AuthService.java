@@ -3,23 +3,19 @@ package fr.esgi.rent_car.service;
 import fr.esgi.rent_car.exception.ConflictException;
 import fr.esgi.rent_car.model.Login;
 import fr.esgi.rent_car.model.Session;
-import fr.esgi.rent_car.model.User;
+import fr.esgi.rent_car.model.Users;
 import fr.esgi.rent_car.repository.SessionRepository;
 import fr.esgi.rent_car.repository.UserRepository;
 import fr.esgi.rent_car.security.TokenProvider;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.lang.module.ResolutionException;
 import java.net.URI;
-import java.util.Optional;
 
 import static org.springframework.web.util.UriComponentsBuilder.fromPath;
 
@@ -52,7 +48,7 @@ public class AuthService {
         return httpHeaders;
     }
 
-    public URI registerUser(User user) {
+    public URI registerUser(Users user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         var existentUser = userRepository.findByEmail(user.getEmail());
         if (existentUser.isEmpty()) {

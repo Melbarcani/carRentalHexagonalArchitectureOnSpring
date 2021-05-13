@@ -1,15 +1,13 @@
 package fr.esgi.rent_car.controller;
 
-import fr.esgi.rent_car.model.User;
+import fr.esgi.rent_car.model.Users;
 import fr.esgi.rent_car.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.time.LocalDate;
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class UserControllerTest {
@@ -25,7 +23,7 @@ class UserControllerTest {
 
     private UserService userService;
     private UserController userController;
-    private User user;
+    private Users user;
     @BeforeEach
     void init(){
         userService = mock(UserService.class);
@@ -33,8 +31,8 @@ class UserControllerTest {
         user = createUser();
     }
 
-    private User createUser() {
-        return new User(
+    private Users createUser() {
+        return new Users(
                 FIRSTNAME_FOR_TEST,
                 LASTNAME_FOR_TEST,
                 EMAIL_FOR_TEST,
