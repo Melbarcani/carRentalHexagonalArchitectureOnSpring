@@ -58,6 +58,9 @@ public class Utilisateurs {
     @Enumerated(EnumType.STRING)
     private Role role = Role.USER;
 
+    @Column
+    private String test;
+
     public Utilisateurs(String firstName, String lastName, String email, String userName, String password, LocalDate birthDate) {
         this.firstname = firstName;
         this.lastname = lastName;
