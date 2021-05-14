@@ -1,16 +1,16 @@
 package fr.esgi.rent_car.repository;
 
-import fr.esgi.rent_car.model.Users;
+import fr.esgi.rent_car.model.Utilisateurs;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository<Users, Long> {
-    Optional<Users> findById(String id);
-    Optional<Users> findByEmail(String email);
+public interface UserRepository extends JpaRepository<Utilisateurs, Long> {
+    Optional<Utilisateurs> findById(String id);
+    Optional<Utilisateurs> findByEmail(String email);
 
-    Users save(Users user);
+    Utilisateurs save(Utilisateurs user);
 
 }

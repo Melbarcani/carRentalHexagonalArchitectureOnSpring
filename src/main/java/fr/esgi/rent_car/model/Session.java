@@ -22,9 +22,9 @@ public class Session {
     private String token;
 
     @ManyToOne
-    private Users user;
+    private Utilisateurs user;
 
-    public Session(String id, LocalDateTime createdAt, String token, Users user) {
+    public Session(String id, LocalDateTime createdAt, String token, Utilisateurs user) {
         this.id = id;
         this.createdAt = createdAt;
         this.token = token;

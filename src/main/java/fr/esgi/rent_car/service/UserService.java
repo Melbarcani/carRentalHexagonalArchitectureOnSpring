@@ -1,7 +1,7 @@
 package fr.esgi.rent_car.service;
 
 import fr.esgi.rent_car.exception.ResourceNotFoundException;
-import fr.esgi.rent_car.model.Users;
+import fr.esgi.rent_car.model.Utilisateurs;
 import fr.esgi.rent_car.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,11 +13,11 @@ import java.util.List;
 public class UserService {
     private UserRepository userRepository;
 
-    public Users findById(String id){
+    public Utilisateurs findById(String id){
         return userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User Id unfounded"));
     }
 
-    public List<Users> findAll(){
+    public List<Utilisateurs> findAll(){
         return userRepository.findAll();
     }
 }

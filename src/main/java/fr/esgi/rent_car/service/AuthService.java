@@ -3,7 +3,7 @@ package fr.esgi.rent_car.service;
 import fr.esgi.rent_car.exception.ConflictException;
 import fr.esgi.rent_car.model.Login;
 import fr.esgi.rent_car.model.Session;
-import fr.esgi.rent_car.model.Users;
+import fr.esgi.rent_car.model.Utilisateurs;
 import fr.esgi.rent_car.repository.SessionRepository;
 import fr.esgi.rent_car.repository.UserRepository;
 import fr.esgi.rent_car.security.TokenProvider;
@@ -48,7 +48,7 @@ public class AuthService {
         return httpHeaders;
     }
 
-    public URI registerUser(Users user) {
+    public URI registerUser(Utilisateurs user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         var existentUser = userRepository.findByEmail(user.getEmail());
         if (existentUser.isEmpty()) {

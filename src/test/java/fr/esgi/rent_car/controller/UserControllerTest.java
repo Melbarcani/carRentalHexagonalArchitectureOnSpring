@@ -1,6 +1,6 @@
 package fr.esgi.rent_car.controller;
 
-import fr.esgi.rent_car.model.Users;
+import fr.esgi.rent_car.model.Utilisateurs;
 import fr.esgi.rent_car.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,7 +23,7 @@ class UserControllerTest {
 
     private UserService userService;
     private UserController userController;
-    private Users user;
+    private Utilisateurs user;
     @BeforeEach
     void init(){
         userService = mock(UserService.class);
@@ -31,8 +31,8 @@ class UserControllerTest {
         user = createUser();
     }
 
-    private Users createUser() {
-        return new Users(
+    private Utilisateurs createUser() {
+        return new Utilisateurs(
                 FIRSTNAME_FOR_TEST,
                 LASTNAME_FOR_TEST,
                 EMAIL_FOR_TEST,

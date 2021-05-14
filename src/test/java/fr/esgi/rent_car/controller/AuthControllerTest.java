@@ -3,7 +3,7 @@ package fr.esgi.rent_car.controller;
 import fr.esgi.rent_car.dto.LoginDto;
 import fr.esgi.rent_car.dto.UserDto;
 import fr.esgi.rent_car.model.Login;
-import fr.esgi.rent_car.model.Users;
+import fr.esgi.rent_car.model.Utilisateurs;
 import fr.esgi.rent_car.service.AuthService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -48,9 +48,9 @@ class AuthControllerTest {
         return userDto;
     }
 
-    private Users createUser() {
+    private Utilisateurs createUser() {
         UserDto userDto = createUserDto();
-        return new Users( //next step : mapper
+        return new Utilisateurs( //next step : mapper
                 userDto.getFirstName(),
                 userDto.getLastName(),
                 userDto.getEmail(),
@@ -63,7 +63,7 @@ class AuthControllerTest {
     @Test
     void createUserTest() {
         UserDto userDto = createUserDto();
-        Users user = createUser();
+        Utilisateurs user = createUser();
         URI uri = fromPath("/api/users/").path("/{id}").buildAndExpand(user.getId()).toUri();
         when(authService.registerUser(user)).thenReturn(uri);
 

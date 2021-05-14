@@ -1,6 +1,6 @@
 package fr.esgi.rent_car.service;
 
-import fr.esgi.rent_car.model.Users;
+import fr.esgi.rent_car.model.Utilisateurs;
 import fr.esgi.rent_car.repository.SessionRepository;
 import fr.esgi.rent_car.repository.UserRepository;
 import fr.esgi.rent_car.security.TokenProvider;
@@ -45,8 +45,8 @@ public class AuthServiceTest {
         );
     }
 
-    private Users createUser() {
-        return new Users(
+    private Utilisateurs createUser() {
+        return new Utilisateurs(
                 FIRSTNAME_FOR_TEST,
                 LASTNAME_FOR_TEST,
                 EMAIL_FOR_TEST,

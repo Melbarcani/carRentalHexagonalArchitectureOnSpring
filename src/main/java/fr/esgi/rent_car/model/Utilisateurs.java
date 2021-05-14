@@ -16,10 +16,11 @@ import javax.persistence.Id;
 
 
 @Data
-@Entity(name = "users")
+@Entity
+@Table(name = "utilisateurs", schema = "api")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Users {
+public class Utilisateurs {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
@@ -57,7 +58,7 @@ public class Users {
     @Enumerated(EnumType.STRING)
     private Role role = Role.USER;
 
-    public Users(String firstName, String lastName, String email, String userName, String password, LocalDate birthDate) {
+    public Utilisateurs(String firstName, String lastName, String email, String userName, String password, LocalDate birthDate) {
         this.firstname = firstName;
         this.lastname = lastName;
         this.email = email;
