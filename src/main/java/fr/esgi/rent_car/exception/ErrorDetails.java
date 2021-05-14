@@ -21,6 +21,7 @@ public class ErrorDetails {
     public ErrorDetails(String message, String uri) {
         this();
         this.message = message;
+        
         this.uri = uri;
     }
 }
