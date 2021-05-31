@@ -1,4 +1,4 @@
-package fr.esgi.rent_car.user.domain;
+package fr.esgi.rent_car.user.domain.model;
 
 import fr.esgi.rent_car.model.Role;
 import lombok.AllArgsConstructor;
@@ -15,5 +15,5 @@ public class UserDto {
     private String firstName;
     private String lastName;
     private LocalDate birthDate;
-    private Role role = Role.USER;
+    private Role role;
 }

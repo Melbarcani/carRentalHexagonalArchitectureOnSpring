@@ -1,10 +1,10 @@
 package fr.esgi.rent_car.service;
 
 import fr.esgi.rent_car.repository.SessionRepository;
-import fr.esgi.rent_car.repository.UserRepository;
 import fr.esgi.rent_car.security.TokenProvider;
-import fr.esgi.rent_car.user.domain.User;
-import fr.esgi.rent_car.user.infra.UserAdapter;
+import fr.esgi.rent_car.user.domain.model.User;
+import fr.esgi.rent_car.user.infra.UserConverter;
+import fr.esgi.rent_car.user.infra.jpa.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -30,7 +30,7 @@ public class AuthServiceTest {
     private UserRepository userRepository;
     private SessionRepository sessionRepository;
     private PasswordEncoder passwordEncoder;
-    private UserAdapter userAdapter;
+    private UserConverter userAdapter;
 
     @BeforeEach
     void init() {
@@ -38,7 +38,7 @@ public class AuthServiceTest {
         userRepository = mock(UserRepository.class);
         sessionRepository = mock(SessionRepository.class);
         passwordEncoder = mock(PasswordEncoder.class);
-        userAdapter = mock(UserAdapter.class);
+        userAdapter = mock(UserConverter.class);
         authService = new AuthService(
                 tokenProvider,
                 authenticationManagerBuilder,

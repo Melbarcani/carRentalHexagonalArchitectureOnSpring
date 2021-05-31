@@ -1,4 +1,4 @@
-package fr.esgi.rent_car.user.domain;
+package fr.esgi.rent_car.user.domain.model;
 
 import fr.esgi.rent_car.model.Role;
 import lombok.AllArgsConstructor;

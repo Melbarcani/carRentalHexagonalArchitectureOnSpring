@@ -1,21 +1,21 @@
 package fr.esgi.rent_car.user.infra;
 
-import fr.esgi.rent_car.user.domain.User;
-import fr.esgi.rent_car.user.domain.UserDto;
-import fr.esgi.rent_car.user.infra.hibernate.UserDao;
+import fr.esgi.rent_car.user.domain.model.User;
+import fr.esgi.rent_car.user.domain.model.UserDto;
+import fr.esgi.rent_car.user.infra.jpa.model.UserEntity;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserAdapter {
-    public User convertToUser(UserDao userDao) {
+public class UserConverter {
+    public User convertToUser(UserEntity userDao) {
         var modelMapper = new ModelMapper();
         return modelMapper.map(userDao, User.class);
     }
 
-    public UserDao convertToUserDao(User user) {
+    public UserEntity convertToUserEntity(User user) {
         var modelMapper = new ModelMapper();
-        return modelMapper.map(user, UserDao.class);
+        return modelMapper.map(user, UserEntity.class);
     }
 
     public UserDto convertToUserDto(User user) {

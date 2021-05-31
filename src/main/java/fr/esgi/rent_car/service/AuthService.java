@@ -4,10 +4,10 @@ import fr.esgi.rent_car.exception.ConflictException;
 import fr.esgi.rent_car.model.Login;
 import fr.esgi.rent_car.model.Session;
 import fr.esgi.rent_car.repository.SessionRepository;
-import fr.esgi.rent_car.repository.UserRepository;
 import fr.esgi.rent_car.security.TokenProvider;
-import fr.esgi.rent_car.user.domain.User;
-import fr.esgi.rent_car.user.infra.UserAdapter;
+import fr.esgi.rent_car.user.domain.model.User;
+import fr.esgi.rent_car.user.infra.UserConverter;
+import fr.esgi.rent_car.user.infra.jpa.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -29,7 +29,7 @@ public class AuthService {
     private final UserRepository userRepository;
     private final SessionRepository sessionRepository;
     private final PasswordEncoder passwordEncoder;
-    private final UserAdapter userAdapter;
+    private final UserConverter userAdapter;
 
     public HttpHeaders createSession(Login login) {
         var authenticationToken = new UsernamePasswordAuthenticationToken(
@@ -54,7 +54,7 @@ public class AuthService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         var existentUser = userRepository.findByEmail(user.getEmail());
         if (existentUser.isEmpty()) {
-            var savedUser = userRepository.save(userAdapter.convertToUserDao(user));
+            var savedUser = userRepository.save(userAdapter.convertToUserEntity(user));
             return fromPath("/api/users/").path("/{id}").buildAndExpand(savedUser.getId()).toUri();
         } else {
             throw new ConflictException("this email : " + user.getEmail() + " is used by an other user");

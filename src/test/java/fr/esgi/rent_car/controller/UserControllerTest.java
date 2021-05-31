@@ -2,7 +2,7 @@ package fr.esgi.rent_car.controller;
 
 import fr.esgi.rent_car.user.infra.web.UserController;
 import fr.esgi.rent_car.user.infra.service.UserService;
-import fr.esgi.rent_car.user.domain.User;
+import fr.esgi.rent_car.user.domain.model.User;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.time.LocalDate;

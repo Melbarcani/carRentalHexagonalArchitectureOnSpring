@@ -1,11 +1,11 @@
-package fr.esgi.rent_car.repository;
+package fr.esgi.rent_car.user.infra.jpa.repository;
 
 import fr.esgi.rent_car.user.infra.jpa.model.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
-/*
+
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
     Optional<UserEntity> findById(String id);
@@ -13,4 +13,4 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
     UserEntity save(UserEntity user);
 
-}*/
+}

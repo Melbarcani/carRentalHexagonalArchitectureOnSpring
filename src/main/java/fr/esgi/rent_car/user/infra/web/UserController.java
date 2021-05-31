@@ -1,7 +1,7 @@
 package fr.esgi.rent_car.user.infra.web;
 
 import fr.esgi.rent_car.user.infra.service.UserService;
-import fr.esgi.rent_car.user.domain.UserDto;
+import fr.esgi.rent_car.user.domain.model.UserDto;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

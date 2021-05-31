@@ -1,8 +1,7 @@
 package fr.esgi.rent_car.controller;
 
 import fr.esgi.rent_car.dto.LoginDto;
-import fr.esgi.rent_car.user.domain.User;
-import fr.esgi.rent_car.user.domain.UserDto;
+import fr.esgi.rent_car.user.domain.model.User;
 import fr.esgi.rent_car.model.Login;
 import fr.esgi.rent_car.service.AuthService;
 import lombok.AllArgsConstructor;

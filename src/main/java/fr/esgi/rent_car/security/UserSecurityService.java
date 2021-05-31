@@ -1,7 +1,7 @@
 package fr.esgi.rent_car.security;
 
 import fr.esgi.rent_car.exception.ResourceNotFoundException;
-import fr.esgi.rent_car.repository.UserRepository;
+import fr.esgi.rent_car.user.infra.jpa.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.UserDetails;

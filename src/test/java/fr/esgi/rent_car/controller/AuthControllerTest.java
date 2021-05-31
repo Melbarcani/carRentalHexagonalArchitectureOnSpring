@@ -1,23 +1,12 @@
 package fr.esgi.rent_car.controller;
 
-import fr.esgi.rent_car.dto.LoginDto;
-import fr.esgi.rent_car.user.domain.User;
-import fr.esgi.rent_car.user.domain.UserDto;
-import fr.esgi.rent_car.model.Login;
 import fr.esgi.rent_car.service.AuthService;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
-import java.net.URI;
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import static org.springframework.web.util.UriComponentsBuilder.fromPath;
 
 class AuthControllerTest {
     protected static final String EMAIL_FOR_TEST = "email@email.com";

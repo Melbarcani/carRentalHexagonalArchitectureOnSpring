@@ -1,7 +1,6 @@
-package fr.esgi.rent_car.user.infra.hibernate;
+package fr.esgi.rent_car.user.infra.jpa.model;
 
 import fr.esgi.rent_car.model.Role;
-import fr.esgi.rent_car.user.domain.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +14,7 @@ import java.time.LocalDate;
     @Table(name = "users", schema = "api")
     @AllArgsConstructor
     @NoArgsConstructor
-    public class UserDao extends User {
+    public class UserEntity {
         @Id
         @GeneratedValue(generator = "UUID")
         @GenericGenerator(
@@ -56,7 +55,7 @@ import java.time.LocalDate;
         @Column
         private String test;
 
-        public UserDao(String firstName, String lastName, String email, String userName, String password, LocalDate birthDate) {
+        public UserEntity(String firstName, String lastName, String email, String userName, String password, LocalDate birthDate) {
             this.firstname = firstName;
             this.lastname = lastName;
             this.email = email;
