@@ -1,27 +1,27 @@
-package fr.esgi.rent_car.controller;
+package fr.esgi.rent_car.user.infra.web.rest;
 
-import fr.esgi.rent_car.dto.LoginDto;
+import fr.esgi.rent_car.user.domain.model.LoginDto;
 import fr.esgi.rent_car.user.domain.model.User;
-import fr.esgi.rent_car.model.Login;
-import fr.esgi.rent_car.service.AuthService;
+import fr.esgi.rent_car.user.domain.model.Login;
+import fr.esgi.rent_car.user.service.AuthService;
+import fr.esgi.rent_car.user.infra.web.AuthController;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/auth")
 @AllArgsConstructor
-public class AuthController {
+public class AuthControllerImpl implements AuthController {
     private final AuthService authService;
 
-    @PostMapping("/signup")
+    @Override
     public ResponseEntity<Object> create(@RequestBody User user) {
         var uri = authService.registerUser(user);
         return new ResponseEntity<>(ResponseEntity.created(uri).build(), HttpStatus.CREATED);
     }
 
-    @PostMapping("/login")
+    @Override
     public ResponseEntity<Login> login(@RequestBody LoginDto loginDto) {
         var login = new Login(loginDto.getEmail(), loginDto.getPassword());
         return new ResponseEntity<>(authService.createSession(login), HttpStatus.OK);

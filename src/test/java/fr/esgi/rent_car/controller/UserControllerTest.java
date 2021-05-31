@@ -1,7 +1,7 @@
 package fr.esgi.rent_car.controller;
 
-import fr.esgi.rent_car.user.infra.web.UserController;
-import fr.esgi.rent_car.user.infra.service.UserService;
+import fr.esgi.rent_car.user.infra.web.rest.UserControllerImpl;
+import fr.esgi.rent_car.user.service.UserService;
 import fr.esgi.rent_car.user.domain.model.User;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -21,12 +21,12 @@ class UserControllerTest {
 
 
     private UserService userService;
-    private UserController userController;
+    private UserControllerImpl userController;
     private User user;
     @BeforeEach
     void init(){
         userService = mock(UserService.class);
-        userController = new UserController(userService);
+        userController = new UserControllerImpl(userService);
         user = createUser();
     }
 

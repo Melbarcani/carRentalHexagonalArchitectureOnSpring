@@ -1,4 +1,4 @@
-package fr.esgi.rent_car.exception;
+package fr.esgi.rent_car.user.exception;
 
 import org.springframework.http.HttpStatus;
 

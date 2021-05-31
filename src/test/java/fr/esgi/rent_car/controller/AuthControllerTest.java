@@ -1,6 +1,7 @@
 package fr.esgi.rent_car.controller;
 
-import fr.esgi.rent_car.service.AuthService;
+import fr.esgi.rent_car.user.service.AuthService;
+import fr.esgi.rent_car.user.infra.web.rest.AuthControllerImpl;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.time.LocalDate;
@@ -17,12 +18,12 @@ class AuthControllerTest {
     protected static final LocalDate BIRTHDAY_FOR_TEST = LocalDate.of(2000, 2, 20);
 
     private AuthService authService;
-    private AuthController authController;
+    private AuthControllerImpl authController;
 
     @BeforeEach
     void init() {
         authService = mock(AuthService.class);
-        authController = new AuthController(authService);
+        authController = new AuthControllerImpl(authService);
     }
 
     /*private UserDto createUserDto() {

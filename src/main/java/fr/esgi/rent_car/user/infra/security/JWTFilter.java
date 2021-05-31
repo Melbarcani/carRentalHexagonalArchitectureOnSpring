@@ -1,4 +1,4 @@
-package fr.esgi.rent_car.security;
+package fr.esgi.rent_car.user.infra.security;
 
 import lombok.AllArgsConstructor;
 import org.springframework.lang.NonNull;

@@ -1,10 +1,11 @@
 package fr.esgi.rent_car.service;
 
 import fr.esgi.rent_car.repository.SessionRepository;
-import fr.esgi.rent_car.security.TokenProvider;
+import fr.esgi.rent_car.user.infra.security.TokenProvider;
 import fr.esgi.rent_car.user.domain.model.User;
 import fr.esgi.rent_car.user.infra.UserConverter;
 import fr.esgi.rent_car.user.infra.jpa.repository.UserRepository;
+import fr.esgi.rent_car.user.service.AuthService;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.crypto.password.PasswordEncoder;

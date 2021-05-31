@@ -6,12 +6,14 @@ import fr.esgi.rent_car.user.domain.port.UserPersistencePort;
 import fr.esgi.rent_car.user.infra.UserConverter;
 import fr.esgi.rent_car.user.infra.jpa.repository.UserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
+@Service
 public class UserJpaAdapter implements UserPersistencePort {
 
     private final UserRepository userRepository;
