@@ -1,5 +1,7 @@
 package fr.esgi.rent_car.model;
 
+import fr.esgi.rent_car.user.domain.User;
+import fr.esgi.rent_car.user.infra.hibernate.UserDao;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -22,9 +24,9 @@ public class Session {
     private String token;
 
     @ManyToOne
-    private Utilisateurs user;
+    private UserDao user;
 
-    public Session(String id, LocalDateTime createdAt, String token, Utilisateurs user) {
+    public Session(String id, LocalDateTime createdAt, String token, UserDao user) {
         this.id = id;
         this.createdAt = createdAt;
         this.token = token;
