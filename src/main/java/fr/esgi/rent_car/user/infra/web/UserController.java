@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
-@RequestMapping("/api/users")
+@RequestMapping("/api/user")
 public interface UserController {
-    @GetMapping
-    ResponseEntity<List<UserDto>> findAll();
+
+    @GetMapping("/all")
+    ResponseEntity<List<UserDto>> getAllUsers();
 
     @GetMapping("/{id}")
-    ResponseEntity<UserDto> findById(@PathVariable String id);
+    ResponseEntity<UserDto> getUserById(@PathVariable String id);
 }

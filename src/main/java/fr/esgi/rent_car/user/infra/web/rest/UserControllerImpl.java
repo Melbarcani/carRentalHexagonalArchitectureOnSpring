@@ -15,11 +15,11 @@ import java.util.List;
 public class UserControllerImpl implements UserController {
     private final UserService userService;
 
-    public ResponseEntity<List<UserDto>> findAll(){
-        return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
+    public ResponseEntity<List<UserDto>> getAllUsers(){
+        return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
 
-    public ResponseEntity<UserDto> findById(@PathVariable String id){
-        return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
+    public ResponseEntity<UserDto> getUserById(@PathVariable String id){
+        return new ResponseEntity<>(userService.getUserById(id), HttpStatus.OK);
     }
 }

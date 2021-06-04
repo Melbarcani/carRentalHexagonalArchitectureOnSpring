@@ -1,6 +1,6 @@
 package fr.esgi.rent_car.user.infra.jpa.model;
 
-import fr.esgi.rent_car.model.Role;
+import fr.esgi.rent_car.user.domain.model.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
