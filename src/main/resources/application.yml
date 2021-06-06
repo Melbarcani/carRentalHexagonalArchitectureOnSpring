@@ -1,0 +1,3 @@
+logging:
+  file:
+    name: C:\Users\Elbar\Documents\Cours\Micro service\project\logs\elk-stack.log

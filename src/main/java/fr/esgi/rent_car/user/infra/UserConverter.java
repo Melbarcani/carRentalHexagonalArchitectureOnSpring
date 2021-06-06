@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UserConverter {
-    public User convertToUser(UserEntity userDao) {
+    public User convertToUser(UserEntity userEntity) {
         var modelMapper = new ModelMapper();
-        return modelMapper.map(userDao, User.class);
+        return modelMapper.map(userEntity, User.class);
     }
 
     public UserEntity convertToUserEntity(User user) {
