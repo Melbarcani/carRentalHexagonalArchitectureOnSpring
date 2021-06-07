@@ -13,15 +13,15 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class UserService {
     private final UserPersistencePort userPersistencePort;
-    private final UserConverter userAdapter;
+    private final UserConverter userConverter;
 
     public UserDto findById(String id){
         var user = userPersistencePort.getUserById(id);
 
-        return userAdapter.convertToUserDto(user);
+        return userConverter.convertToUserDto(user);
     }
 
     public List<UserDto> findAll(){
-        return userPersistencePort.getAllUsers().stream().map(userAdapter::convertToUserDto).collect(Collectors.toList());
+        return userPersistencePort.getAllUsers().stream().map(userConverter::convertToUserDto).collect(Collectors.toList());
     }
 }
