@@ -6,6 +6,7 @@ import fr.esgi.rent_car.user.domain.model.User;
 import fr.esgi.rent_car.user.infra.UserConverter;
 import fr.esgi.rent_car.user.infra.jpa.repository.UserRepository;
 import fr.esgi.rent_car.user.service.AuthService;
+import fr.esgi.rent_car.user.service.SessionService;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -32,6 +33,7 @@ public class AuthServiceTest {
     private SessionRepository sessionRepository;
     private PasswordEncoder passwordEncoder;
     private UserConverter userAdapter;
+    private SessionService sessionService;
 
     @BeforeEach
     void init() {
@@ -46,7 +48,8 @@ public class AuthServiceTest {
                 userRepository,
                 sessionRepository,
                 passwordEncoder,
-                userAdapter
+                userAdapter,
+                sessionService
         );
     }
 

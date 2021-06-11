@@ -10,9 +10,8 @@ import java.util.Optional;
 
 @Repository
 public interface CarRepository extends JpaRepository<CarEntity, Long> {
-    Optional<CarEntity> save(Car car);
+    CarEntity save(CarEntity carEntity);
     Optional<CarEntity> findCarById(String id);
-    List<CarEntity> findCarByMark(String mark);
     List<CarEntity> findCarByLocation(String location);
     List<CarEntity> findCarByIdowner(String idOwner);
     List<CarEntity> findAll();

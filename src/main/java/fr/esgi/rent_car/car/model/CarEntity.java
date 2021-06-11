@@ -41,22 +41,7 @@ public class CarEntity {
     private String location_cp;
 
     @Column
-    private String registration;
-
-    @Column
-    private Double mileage;
-
-    @Column
-    private String mark;
-
-    @Column
-    private String engine;
-
-    @Column
     private Double price_day;
-
-    @Column
-    private String mileage_max;
 
     @Column
     private Date start_date;

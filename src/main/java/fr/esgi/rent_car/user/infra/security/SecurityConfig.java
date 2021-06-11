@@ -23,7 +23,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     };
 
     private static final String[] USER_ENDPOINTS = {
-            "/api/user/**"
+            "/api/user/**",
+            "/api/car/**"
     };
 
     @Bean
@@ -44,10 +45,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers(PUBLIC_ENDPOINTS).permitAll()
-                .antMatchers(Arrays.toString(USER_ENDPOINTS) + "all").denyAll()
-                .antMatchers(Arrays.toString(USER_ENDPOINTS) + "all").hasRole(Role.ADMIN.toString())
-                .antMatchers("/api/**").hasRole(Role.ADMIN.toString())
                 .antMatchers(USER_ENDPOINTS).hasRole(Role.USER.toString())
+                .antMatchers("/api/**").hasRole(Role.ADMIN.toString())
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(new JWTFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class);

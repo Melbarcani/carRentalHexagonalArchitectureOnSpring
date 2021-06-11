@@ -11,7 +11,6 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
     @Data
     @Entity
-    @Table(name = "users", schema = "api")
     @AllArgsConstructor
     @NoArgsConstructor
     public class UserEntity {

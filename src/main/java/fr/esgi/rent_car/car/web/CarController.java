@@ -5,23 +5,20 @@ import fr.esgi.rent_car.car.domain.model.CarDto;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@RequestMapping("/api/cars")
+@RequestMapping("/api/car")
 public interface CarController {
 
     @PostMapping("/register")
-    CarDto createCar(@RequestBody Car car);
-
-    @GetMapping("/all")
-    List<CarDto> getAllCars();
+    List<Car> createCar(@RequestBody CarDto carDto);
 
     @GetMapping("/{id}")
-    CarDto findById(@PathVariable String id);
+    Car getCarById(@PathVariable String id);
 
-    @GetMapping("/marque/{mark}")
-    List<CarDto> findByMark(@PathVariable String mark);
+    @GetMapping("/all")
+    List<Car> getAllCars();
 
-    @GetMapping("/owner/{idOwner}")
-    List<CarDto> findByOwner(@PathVariable String idOwner);
+    @GetMapping("/getMyCars")
+    List<Car> findByOwner();
 
     @PostMapping("/location/{location}")
     List<CarDto> findByLocation(@PathVariable String location);
@@ -29,6 +26,6 @@ public interface CarController {
     @PostMapping("/delete")
     void deleteCarById(@RequestBody String id);
 
-    @PutMapping("/update")
-    CarDto update(@RequestBody Car car);
+    /*@PutMapping("/update")
+    CarDto update(@RequestBody Car car);*/
 }

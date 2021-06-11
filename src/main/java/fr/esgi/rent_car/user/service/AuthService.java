@@ -29,7 +29,8 @@ public class AuthService {
     private final UserRepository userRepository;
     private final SessionRepository sessionRepository;
     private final PasswordEncoder passwordEncoder;
-    private final UserConverter userAdapter;
+    private final UserConverter userConverter;
+    private final SessionService sessionService;
 
     public HttpHeaders createSession(Login login) {
         var authenticationToken = new UsernamePasswordAuthenticationToken(
@@ -41,6 +42,7 @@ public class AuthService {
         var user = userRepository.findByEmail(login.getEmail());
         if (user.isPresent()) {
             sessionRepository.save(new Session(user.get().getId(), null, token, user.get()));
+            sessionService.setCurrentUser(userConverter.convertToUser(user.get()));
         } else {
             throw new ResolutionException("there is no user registered with this email : " + login.getEmail());
         }
@@ -54,7 +56,7 @@ public class AuthService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         var existentUser = userRepository.findByEmail(user.getEmail());
         if (existentUser.isEmpty()) {
-            var savedUser = userRepository.save(userAdapter.convertToUserEntity(user));
+            var savedUser = userRepository.save(userConverter.convertToUserEntity(user));
             return fromPath("/api/users/").path("/{id}").buildAndExpand(savedUser.getId()).toUri();
         } else {
             throw new ConflictException("this email : " + user.getEmail() + " is used by an other user");

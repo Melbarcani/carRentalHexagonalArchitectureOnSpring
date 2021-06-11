@@ -15,24 +15,22 @@ import java.util.List;
 @AllArgsConstructor
 public class CarControllerImpl implements CarController {
     private final CarService carService;
-    public CarDto createCar(@RequestBody Car car){
-        return carService.createCar(car);
+
+    public List<Car> createCar(@RequestBody CarDto carDto){
+        carService.createCar(carDto);
+        return carService.findByOwner();
     }
 
-    public List<CarDto> getAllCars(){
-        return carService.getAllCars();
-    }
-
-    public CarDto findById(@PathVariable String id){
+    public Car getCarById(@PathVariable String id){
         return carService.getCarById(id);
     }
 
-    public List<CarDto> findByMark(@PathVariable String mark){
-        return carService.findByMarque(mark);
+    public List<Car> getAllCars(){
+        return carService.getAllCars();
     }
 
-    public List<CarDto>  findByOwner(@PathVariable String idOwner){
-        return carService.findByOwner(idOwner);
+    public List<Car> findByOwner(){
+        return carService.findByOwner();
     }
 
     public List<CarDto> findByLocation(@PathVariable String location){
@@ -43,7 +41,5 @@ public class CarControllerImpl implements CarController {
         carService.deleteCar(id);
     }
 
-    public CarDto update(Car car){
-        return carService.update(car);
-    }
+   // public CarDto update(Car car){return carService.update(car);}
 }
