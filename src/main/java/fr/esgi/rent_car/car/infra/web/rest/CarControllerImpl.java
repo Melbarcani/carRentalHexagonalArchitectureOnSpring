@@ -1,9 +1,9 @@
-package fr.esgi.rent_car.car.web.rest;
+package fr.esgi.rent_car.car.infra.web.rest;
 
 import fr.esgi.rent_car.car.domain.model.Car;
 import fr.esgi.rent_car.car.domain.model.CarDto;
+import fr.esgi.rent_car.car.infra.web.CarController;
 import fr.esgi.rent_car.car.service.CarService;
-import fr.esgi.rent_car.car.web.CarController;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,7 +21,7 @@ public class CarControllerImpl implements CarController {
         return carService.findByOwner();
     }
 
-    public Car getCarById(@PathVariable String id){
+    public Car getCarById(@RequestBody String id){
         return carService.getCarById(id);
     }
 

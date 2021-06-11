@@ -1,4 +1,4 @@
-package fr.esgi.rent_car.car.web;
+package fr.esgi.rent_car.car.infra.web;
 
 import fr.esgi.rent_car.car.domain.model.Car;
 import fr.esgi.rent_car.car.domain.model.CarDto;
@@ -11,7 +11,7 @@ public interface CarController {
     @PostMapping("/register")
     List<Car> createCar(@RequestBody CarDto carDto);
 
-    @GetMapping("/{id}")
+    @GetMapping("/getCar")
     Car getCarById(@PathVariable String id);
 
     @GetMapping("/all")

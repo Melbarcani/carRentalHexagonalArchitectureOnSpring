@@ -1,8 +1,8 @@
-package fr.esgi.rent_car.car.service;
+package fr.esgi.rent_car.car.infra;
 
 import fr.esgi.rent_car.car.domain.model.Car;
 import fr.esgi.rent_car.car.domain.model.CarDto;
-import fr.esgi.rent_car.car.model.CarEntity;
+import fr.esgi.rent_car.car.infra.jpa.model.CarEntity;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 

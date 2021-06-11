@@ -1,4 +1,4 @@
-package fr.esgi.rent_car.car.model;
+package fr.esgi.rent_car.car.infra.jpa.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

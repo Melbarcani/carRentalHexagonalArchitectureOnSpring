@@ -1,10 +1,10 @@
-package fr.esgi.rent_car.car.infra.adapter.jpa;
+package fr.esgi.rent_car.car.infra.jpa.adapter;
 
 import fr.esgi.rent_car.car.domain.model.Car;
 import fr.esgi.rent_car.car.domain.port.CarPersistencePort;
-import fr.esgi.rent_car.car.model.CarEntity;
-import fr.esgi.rent_car.car.repository.CarRepository;
-import fr.esgi.rent_car.car.service.CarConverter;
+import fr.esgi.rent_car.car.infra.jpa.model.CarEntity;
+import fr.esgi.rent_car.car.infra.jpa.repository.CarRepository;
+import fr.esgi.rent_car.car.infra.CarConverter;
 import fr.esgi.rent_car.exception.ResourceNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

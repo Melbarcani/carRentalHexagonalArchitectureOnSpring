@@ -2,10 +2,9 @@ package fr.esgi.rent_car.car.domain.port;
 
 
 import fr.esgi.rent_car.car.domain.model.Car;
-import fr.esgi.rent_car.car.model.CarEntity;
+import fr.esgi.rent_car.car.infra.jpa.model.CarEntity;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface CarPersistencePort {
     Car createCar(CarEntity carEntity);

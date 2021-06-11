@@ -1,7 +1,6 @@
-package fr.esgi.rent_car.car.repository;
+package fr.esgi.rent_car.car.infra.jpa.repository;
 
-import fr.esgi.rent_car.car.domain.model.Car;
-import fr.esgi.rent_car.car.model.CarEntity;
+import fr.esgi.rent_car.car.infra.jpa.model.CarEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
