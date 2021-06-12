@@ -51,9 +51,6 @@ import java.time.LocalDate;
         @Enumerated(EnumType.STRING)
         private Role role = Role.USER;
 
-        @Column
-        private String test;
-
         public UserEntity(String firstName, String lastName, String email, String userName, String password, LocalDate birthDate) {
             this.firstname = firstName;
             this.lastname = lastName;

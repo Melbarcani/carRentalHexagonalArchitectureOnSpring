@@ -3,6 +3,7 @@ package fr.esgi.rent_car.user.infra.web.rest;
 import fr.esgi.rent_car.user.domain.model.LoginDto;
 import fr.esgi.rent_car.user.domain.model.User;
 import fr.esgi.rent_car.user.domain.model.Login;
+import fr.esgi.rent_car.user.infra.web.model.UserCreationModel;
 import fr.esgi.rent_car.user.service.AuthService;
 import fr.esgi.rent_car.user.infra.web.AuthController;
 import lombok.AllArgsConstructor;
@@ -17,8 +18,8 @@ public class AuthControllerImpl implements AuthController {
     private final AuthService authService;
 
     @Override
-    public ResponseEntity<Object> create(@RequestBody User user) {
-        var uri = authService.registerUser(user);
+    public ResponseEntity<Object> create(@RequestBody UserCreationModel userCreationModel) {
+        var uri = authService.registerUser(userCreationModel);
         return new ResponseEntity<>(ResponseEntity.created(uri).build(), HttpStatus.CREATED);
     }
 

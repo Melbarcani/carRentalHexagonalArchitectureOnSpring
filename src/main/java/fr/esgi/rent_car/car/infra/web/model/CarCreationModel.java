@@ -1,17 +1,13 @@
-package fr.esgi.rent_car.car.domain.model;
+package fr.esgi.rent_car.car.infra.web.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import java.util.Date;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class CarDto {
-    private String id;
-    private String idOwner;
+@RequiredArgsConstructor
+public class CarCreationModel {
     private String description;
     private String location;
     private String location_cp;

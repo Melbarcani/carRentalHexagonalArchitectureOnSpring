@@ -18,8 +18,8 @@ public class CarJpaAdapter implements CarPersistencePort {
     private final CarRepository carRepository;
     private final CarConverter carConverter;
 
-    public Car createCar(CarEntity carEntity){
-        return carConverter.convertToCar(carRepository.save(carEntity));
+    public Car createCar(Car car){
+        return carConverter.convertToCar(carRepository.save(carConverter.convertCarToEntity(car)));
     }
 
     public Car getCarById(String id){
@@ -40,8 +40,8 @@ public class CarJpaAdapter implements CarPersistencePort {
 
     public void deleteCar(String id) { carRepository.deleteCarById(id); }
 
-    /*public Car update(CarEntity carEntity){
-        return carConverter.convertToCar(carRepository.save(carEntity));
-    }*/
+    public Car update(Car car){
+        return carConverter.convertToCar(carRepository.save(carConverter.convertCarToEntity(car)));
+    }
 }
 

@@ -8,6 +8,7 @@ import fr.esgi.rent_car.user.infra.security.TokenProvider;
 import fr.esgi.rent_car.user.domain.model.User;
 import fr.esgi.rent_car.user.infra.UserConverter;
 import fr.esgi.rent_car.user.infra.jpa.repository.UserRepository;
+import fr.esgi.rent_car.user.infra.web.model.UserCreationModel;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -39,10 +40,12 @@ public class AuthService {
         var authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
         var token = tokenProvider.createToken(authentication);
 
-        var user = userRepository.findByEmail(login.getEmail());
-        if (user.isPresent()) {
-            sessionRepository.save(new Session(user.get().getId(), null, token, user.get()));
-            sessionService.setCurrentUser(userConverter.convertToUser(user.get()));
+        var userEntity = userRepository.findByEmail(login.getEmail());
+        if (userEntity.isPresent()) {
+            sessionRepository.findByUser(userEntity.get()).ifPresent(sessionRepository::delete);
+
+            sessionRepository.save(new Session(userEntity.get().getId(), null, token, userEntity.get()));
+            sessionService.setCurrentUser(userConverter.convertToUser(userEntity.get()));
         } else {
             throw new ResolutionException("there is no user registered with this email : " + login.getEmail());
         }
@@ -52,7 +55,8 @@ public class AuthService {
         return httpHeaders;
     }
 
-    public URI registerUser(User user) {
+    public URI registerUser(UserCreationModel userCreationModel) {
+        var user = userConverter.convertCreationModelToUser(userCreationModel);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         var existentUser = userRepository.findByEmail(user.getEmail());
         if (existentUser.isEmpty()) {

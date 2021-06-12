@@ -2,6 +2,7 @@ package fr.esgi.rent_car.car.infra.web;
 
 import fr.esgi.rent_car.car.domain.model.Car;
 import fr.esgi.rent_car.car.domain.model.CarDto;
+import fr.esgi.rent_car.car.infra.web.model.CarCreationModel;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -9,16 +10,16 @@ import java.util.List;
 public interface CarController {
 
     @PostMapping("/register")
-    List<Car> createCar(@RequestBody CarDto carDto);
+    List<CarDto> createCar(@RequestBody CarCreationModel carCreationModel);
 
     @GetMapping("/getCar")
-    Car getCarById(@PathVariable String id);
+    CarDto getCarById(@RequestBody String id);
 
     @GetMapping("/all")
-    List<Car> getAllCars();
+    List<CarDto> getAllCars();
 
     @GetMapping("/getMyCars")
-    List<Car> findByOwner();
+    List<CarDto> findByOwner();
 
     @PostMapping("/location/{location}")
     List<CarDto> findByLocation(@PathVariable String location);
@@ -26,6 +27,6 @@ public interface CarController {
     @PostMapping("/delete")
     void deleteCarById(@RequestBody String id);
 
-    /*@PutMapping("/update")
-    CarDto update(@RequestBody Car car);*/
+    @PutMapping("/update")
+    CarDto update(@RequestBody CarDto carDto);
 }

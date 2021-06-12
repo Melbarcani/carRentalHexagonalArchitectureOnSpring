@@ -3,6 +3,7 @@ package fr.esgi.rent_car.user.infra;
 import fr.esgi.rent_car.user.domain.model.User;
 import fr.esgi.rent_car.user.domain.model.UserDto;
 import fr.esgi.rent_car.user.infra.jpa.model.UserEntity;
+import fr.esgi.rent_car.user.infra.web.model.UserCreationModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
@@ -28,5 +29,10 @@ public class UserConverter {
                 user.getBirthdate(),
                 user.getRole()
         );
+    }
+
+    public User convertCreationModelToUser(UserCreationModel userCreationModel) {
+        var modelMapper = new ModelMapper();
+        return modelMapper.map(userCreationModel,User.class);
     }
 }

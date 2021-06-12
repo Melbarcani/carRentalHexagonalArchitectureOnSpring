@@ -38,15 +38,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-
-                .and()
-                .authorizeRequests()
                 .and()
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers(PUBLIC_ENDPOINTS).permitAll()
                 .antMatchers(USER_ENDPOINTS).hasRole(Role.USER.toString())
-                .antMatchers("/api/**").hasRole(Role.ADMIN.toString())
+                .antMatchers("/api/admin/**").hasRole(Role.ADMIN.toString())
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(new JWTFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class);

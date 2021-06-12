@@ -3,6 +3,7 @@ package fr.esgi.rent_car.car.infra.web.rest;
 import fr.esgi.rent_car.car.domain.model.Car;
 import fr.esgi.rent_car.car.domain.model.CarDto;
 import fr.esgi.rent_car.car.infra.web.CarController;
+import fr.esgi.rent_car.car.infra.web.model.CarCreationModel;
 import fr.esgi.rent_car.car.service.CarService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,20 +17,20 @@ import java.util.List;
 public class CarControllerImpl implements CarController {
     private final CarService carService;
 
-    public List<Car> createCar(@RequestBody CarDto carDto){
-        carService.createCar(carDto);
+    public List<CarDto> createCar(@RequestBody CarCreationModel carCreationModel){
+        carService.createCar(carCreationModel);
         return carService.findByOwner();
     }
 
-    public Car getCarById(@RequestBody String id){
+    public CarDto getCarById(@RequestBody String id){
         return carService.getCarById(id);
     }
 
-    public List<Car> getAllCars(){
+    public List<CarDto> getAllCars(){
         return carService.getAllCars();
     }
 
-    public List<Car> findByOwner(){
+    public List<CarDto> findByOwner(){
         return carService.findByOwner();
     }
 
@@ -41,5 +42,6 @@ public class CarControllerImpl implements CarController {
         carService.deleteCar(id);
     }
 
-   // public CarDto update(Car car){return carService.update(car);}
+   public CarDto update(CarDto carDto){
+        return carService.update(carDto);}
 }

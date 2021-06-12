@@ -17,7 +17,6 @@ public class User {
     private String lastname;
     private LocalDate birthdate;
     private Role role = Role.USER;
-    private String test;
 
     public User(String firstName, String lastName, String email, String userName, String password, LocalDate birthDate) {
         this.firstname = firstName;
