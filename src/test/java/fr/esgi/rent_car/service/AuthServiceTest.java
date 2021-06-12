@@ -1,6 +1,6 @@
 package fr.esgi.rent_car.service;
 
-import fr.esgi.rent_car.repository.SessionRepository;
+import fr.esgi.rent_car.user.infra.jpa.repository.SessionRepository;
 import fr.esgi.rent_car.user.infra.security.TokenProvider;
 import fr.esgi.rent_car.user.domain.model.User;
 import fr.esgi.rent_car.user.infra.UserConverter;

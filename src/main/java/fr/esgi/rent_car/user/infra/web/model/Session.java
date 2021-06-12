@@ -1,4 +1,4 @@
-package fr.esgi.rent_car.model;
+package fr.esgi.rent_car.user.infra.web.model;
 
 import fr.esgi.rent_car.user.infra.jpa.model.UserEntity;
 import lombok.Data;
