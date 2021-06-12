@@ -1,0 +1,28 @@
+package fr.esgi.rent_car.location.infra.web;
+
+import fr.esgi.rent_car.location.domain.model.RentDto;
+import fr.esgi.rent_car.location.exception.RentException;
+import fr.esgi.rent_car.location.infra.web.model.RentCreationModel;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+
+@RequestMapping("/api/rent")
+public interface RentController {
+
+    @PostMapping("/attempt")
+    RentDto saveLocation(@RequestBody RentCreationModel rentCreationModel) throws RentException;
+
+   /* @GetMapping("/id")
+    Optional<RentDto> findLocationEntityById(String id);
+
+    @GetMapping("/all")
+    List<RentDto> findAll();
+
+    @GetMapping("/car/id")
+    List<RentDto> findAllById_car(@PathVariable String idCar);
+
+    @GetMapping("/user/id")
+    List<RentDto> findAllByIdAndId_user(@PathVariable String idUser);*/
+}
