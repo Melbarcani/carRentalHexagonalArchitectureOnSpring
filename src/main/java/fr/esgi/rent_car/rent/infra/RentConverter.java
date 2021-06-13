@@ -1,9 +1,9 @@
-package fr.esgi.rent_car.location.infra;
+package fr.esgi.rent_car.rent.infra;
 
-import fr.esgi.rent_car.location.domain.model.Rent;
-import fr.esgi.rent_car.location.domain.model.RentDto;
-import fr.esgi.rent_car.location.infra.jpa.model.RentEntity;
-import fr.esgi.rent_car.location.infra.web.model.RentCreationModel;
+import fr.esgi.rent_car.rent.domain.model.Rent;
+import fr.esgi.rent_car.rent.domain.model.RentDto;
+import fr.esgi.rent_car.rent.infra.jpa.model.RentEntity;
+import fr.esgi.rent_car.rent.infra.web.model.RentCreationModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class RentConverter {
 
-    public Rent convertCreationModelToRent(RentCreationModel rentCreationModel, String user_id, double price, int nbDay) {
-        return new Rent("",rentCreationModel.getId_car(),user_id,nbDay,price,rentCreationModel.getStart_date(),rentCreationModel.getEnd_date());
+    public Rent convertCreationModelToRent(RentCreationModel rentCreationModel, String useId, double price, int nbDay) {
+        return new Rent("",rentCreationModel.getId_car(),useId,nbDay,price,rentCreationModel.getStart_date(),rentCreationModel.getEnd_date());
     }
 
     public RentDto convertRentToRentDto(Rent rent) {

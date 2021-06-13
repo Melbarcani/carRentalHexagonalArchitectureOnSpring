@@ -1,9 +1,8 @@
-package fr.esgi.rent_car.location.infra.jpa.model;
+package fr.esgi.rent_car.rent.infra.jpa.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.tomcat.jni.Local;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Column;
@@ -11,7 +10,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Data
 @Entity

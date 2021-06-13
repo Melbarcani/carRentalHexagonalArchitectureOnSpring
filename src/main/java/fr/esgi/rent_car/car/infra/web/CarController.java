@@ -1,6 +1,5 @@
 package fr.esgi.rent_car.car.infra.web;
 
-import fr.esgi.rent_car.car.domain.model.Car;
 import fr.esgi.rent_car.car.domain.model.CarDto;
 import fr.esgi.rent_car.car.infra.web.model.CarCreationModel;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +16,9 @@ public interface CarController {
 
     @GetMapping("/all")
     List<CarDto> getAllCars();
+
+    @GetMapping("/availableCars")
+    List<CarDto> getAllAvailableCars();
 
     @GetMapping("/getMyCars")
     List<CarDto> findByOwner();

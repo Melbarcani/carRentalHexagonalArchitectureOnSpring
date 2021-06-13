@@ -1,10 +1,9 @@
-package fr.esgi.rent_car.location.infra.jpa.adapter;
+package fr.esgi.rent_car.rent.infra.jpa.adapter;
 
-import fr.esgi.rent_car.location.domain.model.Rent;
-import fr.esgi.rent_car.location.domain.port.RentPersistencePort;
-import fr.esgi.rent_car.location.infra.RentConverter;
-import fr.esgi.rent_car.location.infra.jpa.model.RentEntity;
-import fr.esgi.rent_car.location.infra.jpa.repository.RentRepository;
+import fr.esgi.rent_car.rent.domain.model.Rent;
+import fr.esgi.rent_car.rent.domain.port.RentPersistencePort;
+import fr.esgi.rent_car.rent.infra.RentConverter;
+import fr.esgi.rent_car.rent.infra.jpa.repository.RentRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +16,8 @@ public class RentJpaAdapter implements RentPersistencePort {
 
     @Override
     public Rent save(Rent rent) {
-        RentEntity rentEntity = rentConverter.convertRentToEntity(rent);
         return rentConverter.convertEntityToRent(
-                rentRepository.save(rentEntity));
+                rentRepository.save(
+                        rentConverter.convertRentToEntity(rent)));
     }
 }

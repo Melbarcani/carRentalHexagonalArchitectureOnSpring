@@ -4,11 +4,8 @@ import fr.esgi.rent_car.car.domain.model.Car;
 import fr.esgi.rent_car.car.domain.model.CarDto;
 import fr.esgi.rent_car.car.infra.jpa.model.CarEntity;
 import fr.esgi.rent_car.car.infra.web.model.CarCreationModel;
-import org.dom4j.rule.Mode;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
-
-import javax.swing.text.Caret;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,7 +23,7 @@ public class CarConverter {
 
     public Car convertCreationModelToCar(CarCreationModel carCreationModel, String idOwner) {
         return new Car("", idOwner, carCreationModel.getDescription(), carCreationModel.getLocation(),
-                carCreationModel.getLocation_cp(), carCreationModel.getPrice_day(), carCreationModel.getStart_date(), carCreationModel.getEnd_date());
+                carCreationModel.getLocation_cp(), carCreationModel.getPrice_day(), carCreationModel.getStart_date(), carCreationModel.getEnd_date(), true);
     }
 
     public CarEntity convertCarToEntity(Car car){

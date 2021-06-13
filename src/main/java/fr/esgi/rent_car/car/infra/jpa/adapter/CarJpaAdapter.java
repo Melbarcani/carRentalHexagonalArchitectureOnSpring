@@ -2,7 +2,6 @@ package fr.esgi.rent_car.car.infra.jpa.adapter;
 
 import fr.esgi.rent_car.car.domain.model.Car;
 import fr.esgi.rent_car.car.domain.port.CarPersistencePort;
-import fr.esgi.rent_car.car.infra.jpa.model.CarEntity;
 import fr.esgi.rent_car.car.infra.jpa.repository.CarRepository;
 import fr.esgi.rent_car.car.infra.CarConverter;
 import fr.esgi.rent_car.exception.ResourceNotFoundException;
@@ -36,6 +35,11 @@ public class CarJpaAdapter implements CarPersistencePort {
 
     public List<Car> findAll(){
         return carConverter.convertToCarList(carRepository.findAll());
+    }
+
+    @Override
+    public List<Car> findAllAvailableCars() {
+        return carConverter.convertToCarList(carRepository.findAllByAvailableTrue());
     }
 
     public void deleteCar(String id) { carRepository.deleteCarById(id); }

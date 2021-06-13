@@ -44,7 +44,6 @@ public class AuthService {
             sessionRepository.findByUser(userEntity.get()).ifPresent(sessionRepository::delete);
 
             sessionRepository.save(new Session(userEntity.get().getId(), null, token, userEntity.get()));
-            sessionService.setCurrentUser(userConverter.convertToUser(userEntity.get()));
         } else {
             throw new ResolutionException("there is no user registered with this email : " + login.getEmail());
         }

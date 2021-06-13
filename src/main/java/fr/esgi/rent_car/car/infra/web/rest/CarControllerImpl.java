@@ -1,6 +1,5 @@
 package fr.esgi.rent_car.car.infra.web.rest;
 
-import fr.esgi.rent_car.car.domain.model.Car;
 import fr.esgi.rent_car.car.domain.model.CarDto;
 import fr.esgi.rent_car.car.infra.web.CarController;
 import fr.esgi.rent_car.car.infra.web.model.CarCreationModel;
@@ -28,6 +27,11 @@ public class CarControllerImpl implements CarController {
 
     public List<CarDto> getAllCars(){
         return carService.getAllCars();
+    }
+
+    @Override
+    public List<CarDto> getAllAvailableCars() {
+        return carService.getAllAvailableCars();
     }
 
     public List<CarDto> findByOwner(){

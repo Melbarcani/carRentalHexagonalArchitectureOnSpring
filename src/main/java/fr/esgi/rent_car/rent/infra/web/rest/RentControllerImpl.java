@@ -1,11 +1,11 @@
-package fr.esgi.rent_car.location.infra.web.rest;
+package fr.esgi.rent_car.rent.infra.web.rest;
 
-import fr.esgi.rent_car.location.domain.model.RentDto;
-import fr.esgi.rent_car.location.exception.RentException;
-import fr.esgi.rent_car.location.infra.RentConverter;
-import fr.esgi.rent_car.location.infra.web.RentController;
-import fr.esgi.rent_car.location.infra.web.model.RentCreationModel;
-import fr.esgi.rent_car.location.service.RentService;
+import fr.esgi.rent_car.rent.domain.model.RentDto;
+import fr.esgi.rent_car.rent.exception.RentException;
+import fr.esgi.rent_car.rent.infra.RentConverter;
+import fr.esgi.rent_car.rent.infra.web.RentController;
+import fr.esgi.rent_car.rent.infra.web.model.RentCreationModel;
+import fr.esgi.rent_car.rent.service.RentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +17,6 @@ public class RentControllerImpl implements RentController {
 
     @Override
     public RentDto saveLocation(RentCreationModel rentCreationModel) throws RentException {
-        RentDto r = rentService.save(rentCreationModel);
-        return r;
+        return rentService.save(rentCreationModel);
     }
 }

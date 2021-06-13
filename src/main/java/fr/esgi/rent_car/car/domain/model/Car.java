@@ -3,7 +3,8 @@ package fr.esgi.rent_car.car.domain.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.Date;
+
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -15,6 +16,7 @@ public class Car {
     private String location;
     private String location_cp;
     private Double price_day;
-    private Date start_date;
-    private Date end_date;
+    private LocalDate start_date;
+    private LocalDate end_date;
+    private Boolean available;
 }

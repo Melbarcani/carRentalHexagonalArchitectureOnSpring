@@ -1,12 +1,9 @@
-package fr.esgi.rent_car.location.infra.web;
+package fr.esgi.rent_car.rent.infra.web;
 
-import fr.esgi.rent_car.location.domain.model.RentDto;
-import fr.esgi.rent_car.location.exception.RentException;
-import fr.esgi.rent_car.location.infra.web.model.RentCreationModel;
+import fr.esgi.rent_car.rent.domain.model.RentDto;
+import fr.esgi.rent_car.rent.exception.RentException;
+import fr.esgi.rent_car.rent.infra.web.model.RentCreationModel;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
 
 @RequestMapping("/api/rent")
 public interface RentController {

@@ -14,5 +14,6 @@ public interface CarRepository extends JpaRepository<CarEntity, Long> {
     List<CarEntity> findCarByLocation(String location);
     List<CarEntity> findCarByIdowner(String idOwner);
     List<CarEntity> findAll();
+    List<CarEntity> findAllByAvailableTrue();
     void deleteCarById(String id);
 }

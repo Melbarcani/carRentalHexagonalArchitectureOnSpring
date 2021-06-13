@@ -10,7 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import java.util.Arrays;
 
 @EnableWebSecurity
 @AllArgsConstructor
@@ -24,7 +23,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String[] USER_ENDPOINTS = {
             "/api/user/**",
-            "/api/car/**"
+            "/api/car/**",
+            "/api/rent/**"
     };
 
     @Bean

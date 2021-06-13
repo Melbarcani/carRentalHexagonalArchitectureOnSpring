@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @Entity
@@ -44,10 +44,13 @@ public class CarEntity {
     private Double price_day;
 
     @Column
-    private Date start_date;
+    private LocalDate start_date;
 
     @Column
-    private Date end_date;
+    private LocalDate end_date;
+
+    @Column
+    private Boolean available;
 }
 
 

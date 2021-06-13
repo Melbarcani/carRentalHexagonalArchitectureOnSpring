@@ -10,6 +10,7 @@ public interface CarPersistencePort {
     List<Car> findByLocation(String location);
     List<Car> findByOwner(String owner);
     List<Car> findAll();
+    List<Car> findAllAvailableCars();
     void deleteCar(String id);
     Car update(Car car);
 }

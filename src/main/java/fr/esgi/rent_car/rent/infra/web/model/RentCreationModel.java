@@ -1,10 +1,9 @@
-package fr.esgi.rent_car.location.infra.web.model;
+package fr.esgi.rent_car.rent.infra.web.model;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Data
 @RequiredArgsConstructor

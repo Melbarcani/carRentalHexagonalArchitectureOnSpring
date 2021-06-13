@@ -1,6 +1,5 @@
 package fr.esgi.rent_car.car.service;
 
-import fr.esgi.rent_car.car.domain.model.Car;
 import fr.esgi.rent_car.car.domain.model.CarDto;
 import fr.esgi.rent_car.car.domain.port.CarPersistencePort;
 import fr.esgi.rent_car.car.infra.CarConverter;
@@ -20,7 +19,7 @@ public class CarService {
 
     public CarDto createCar(CarCreationModel carCreationModel){
 
-        Car car = carConverter.convertCreationModelToCar(carCreationModel,sessionService.getCurrentUser().getId());
+        var car = carConverter.convertCreationModelToCar(carCreationModel,sessionService.getCurrentUser().getId());
         return carConverter.convertToCarDto(carPersistencePort.createCar(car));
     }
 
@@ -50,5 +49,9 @@ public class CarService {
         return  carConverter.convertToCarDto(
                     carPersistencePort.update(
                         carConverter.convertDtoToCar(carDto)));
+    }
+
+    public List<CarDto> getAllAvailableCars() {
+        return carConverter.convertCarToCarDtoList(carPersistencePort.findAllAvailableCars());
     }
 }

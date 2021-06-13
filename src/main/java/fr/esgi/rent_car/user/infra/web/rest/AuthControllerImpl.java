@@ -1,7 +1,6 @@
 package fr.esgi.rent_car.user.infra.web.rest;
 
 import fr.esgi.rent_car.user.domain.model.LoginDto;
-import fr.esgi.rent_car.user.domain.model.User;
 import fr.esgi.rent_car.user.domain.model.Login;
 import fr.esgi.rent_car.user.infra.web.model.UserCreationModel;
 import fr.esgi.rent_car.user.service.AuthService;
