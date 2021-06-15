@@ -21,6 +21,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/api/auth/**"
     };
 
+    private static final String[] ADMIN_ENDPOINTS = {
+            "/api/admin/**"
+    };
+
     private static final String[] USER_ENDPOINTS = {
             "/api/user/**",
             "/api/car/**",
@@ -43,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(PUBLIC_ENDPOINTS).permitAll()
                 .antMatchers(USER_ENDPOINTS).hasRole(Role.USER.toString())
-                .antMatchers("/api/admin/**").hasRole(Role.ADMIN.toString())
+                .antMatchers(ADMIN_ENDPOINTS).hasRole(Role.ADMIN.toString())
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(new JWTFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class);

@@ -9,6 +9,9 @@ import fr.esgi.rent_car.rent.service.RentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 @RestController
 @RequiredArgsConstructor
 public class RentControllerImpl implements RentController {
@@ -18,5 +21,25 @@ public class RentControllerImpl implements RentController {
     @Override
     public RentDto saveLocation(RentCreationModel rentCreationModel) throws RentException {
         return rentService.save(rentCreationModel);
+    }
+
+    @Override
+    public Optional<RentDto> findLocationEntityById(String id) {
+        return Optional.empty();
+    }
+
+    @Override
+    public List<RentDto> findAll() {
+        return null;
+    }
+
+    @Override
+    public List<RentDto> findAllById_car(String idCar) {
+        return null;
+    }
+
+    @Override
+    public List<RentDto> findAllByIdAndId_user(String idUser) {
+        return null;
     }
 }
