@@ -23,7 +23,7 @@ public interface CarController {
     @GetMapping("/getMyCars")
     List<CarDto> findByOwner();
 
-    @PostMapping("/location/{location}")
+    @GetMapping("/location/{location}")
     List<CarDto> findByLocation(@PathVariable String location);
 
     @PostMapping("/delete")

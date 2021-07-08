@@ -2,7 +2,7 @@ package fr.esgi.rent_car.rent.infra.web.rest;
 
 import fr.esgi.rent_car.rent.domain.model.RentDto;
 import fr.esgi.rent_car.rent.exception.RentException;
-import fr.esgi.rent_car.rent.infra.RentConverter;
+import fr.esgi.rent_car.rent.infra.RentMapper;
 import fr.esgi.rent_car.rent.infra.web.RentController;
 import fr.esgi.rent_car.rent.infra.web.model.RentCreationModel;
 import fr.esgi.rent_car.rent.service.RentService;
@@ -16,7 +16,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class RentControllerImpl implements RentController {
     public final RentService rentService;
-    public final RentConverter locationConverter;
+    public final RentMapper rentMapper;
 
     @Override
     public RentDto saveLocation(RentCreationModel rentCreationModel) throws RentException {
@@ -30,16 +30,11 @@ public class RentControllerImpl implements RentController {
 
     @Override
     public List<RentDto> findAll() {
-        return null;
+        return rentService.getAllRent();
     }
 
     @Override
-    public List<RentDto> findAllById_car(String idCar) {
-        return null;
-    }
-
-    @Override
-    public List<RentDto> findAllByIdAndId_user(String idUser) {
-        return null;
+    public List<RentDto> findAllByUserId(String idUser) {
+        return rentService.getAllRentByUserId(idUser);
     }
 }

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class CarConverter {
+public class CarMapper {
     public CarDto convertToCarDto(Car car) {
         var modelMapper = new ModelMapper();
         return modelMapper.map(car, CarDto.class);
@@ -27,8 +27,8 @@ public class CarConverter {
     }
 
     public CarEntity convertCarToEntity(Car car){
-        var modelMapprer = new ModelMapper();
-        return modelMapprer.map(car, CarEntity.class);
+        var modelMapper = new ModelMapper();
+        return modelMapper.map(car, CarEntity.class);
     }
 
     public Car convertToCar(CarEntity carEntity) {

@@ -6,7 +6,7 @@ import fr.esgi.rent_car.car.service.CarService;
 import fr.esgi.rent_car.rent.domain.model.RentDto;
 import fr.esgi.rent_car.rent.domain.port.RentPersistencePort;
 import fr.esgi.rent_car.rent.exception.RentException;
-import fr.esgi.rent_car.rent.infra.RentConverter;
+import fr.esgi.rent_car.rent.infra.RentMapper;
 import fr.esgi.rent_car.rent.infra.web.model.RentCreationModel;
 import fr.esgi.rent_car.user.service.SessionService;
 import lombok.AllArgsConstructor;
@@ -14,17 +14,18 @@ import org.springframework.stereotype.Service;
 
 import java.text.MessageFormat;
 import java.time.Period;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
 public class RentService {
     private final RentPersistencePort rentPersistencePort;
-    private final RentConverter rentConverter;
+    private final RentMapper rentConverter;
     private final SessionService sessionService;
     private final CarService carService;
 
     public RentDto save(RentCreationModel rentCreationModel) throws RentException {
-        var carDto = recupererLaVoitureAvailableOK(rentCreationModel);
+        var carDto = getCarDtoIfAvailable(rentCreationModel);
 
         if(Period.between(rentCreationModel.getStart_date(),rentCreationModel.getEnd_date()).getDays() <= 0)
             throw handleRentMassageDateException(rentCreationModel);
@@ -35,7 +36,11 @@ public class RentService {
         return checkRentedCarDate(rentCreationModel, nbDays, carDto, price);
     }
 
-    private CarDto recupererLaVoitureAvailableOK(RentCreationModel rentCreationModel) {
+    public List<RentDto> getAllRentByUserId(String idUser){
+        return rentConverter.convertRentToDtoList(rentPersistencePort.getAllRentByUserId(idUser));
+    }
+
+    private CarDto getCarDtoIfAvailable(RentCreationModel rentCreationModel) {
         var carDto = carService.getCarById(rentCreationModel.getId_car());
 
         if (!Boolean.TRUE.equals(carDto.getAvailable())) {
@@ -86,4 +91,7 @@ public class RentService {
     }
 
 
+    public List<RentDto> getAllRent() {
+        return rentConverter.convertRentToDtoList(rentPersistencePort.getAllRent());
+    }
 }

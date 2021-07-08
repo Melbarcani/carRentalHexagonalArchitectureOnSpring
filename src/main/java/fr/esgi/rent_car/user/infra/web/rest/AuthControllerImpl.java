@@ -25,7 +25,6 @@ public class AuthControllerImpl implements AuthController {
     @Override
     public ResponseEntity<Login> login(@RequestBody LoginDto loginDto) {
         var login = new Login(loginDto.getEmail(), loginDto.getPassword());
-        HttpHeaders h = authService.createSession(login);
-        return new ResponseEntity<>( h , HttpStatus.OK);
+        return new ResponseEntity<>( authService.createSession(login) , HttpStatus.OK);
     }
 }

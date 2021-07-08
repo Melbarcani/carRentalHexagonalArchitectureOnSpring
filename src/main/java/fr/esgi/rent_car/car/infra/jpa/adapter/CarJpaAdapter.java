@@ -3,7 +3,7 @@ package fr.esgi.rent_car.car.infra.jpa.adapter;
 import fr.esgi.rent_car.car.domain.model.Car;
 import fr.esgi.rent_car.car.domain.port.CarPersistencePort;
 import fr.esgi.rent_car.car.infra.jpa.repository.CarRepository;
-import fr.esgi.rent_car.car.infra.CarConverter;
+import fr.esgi.rent_car.car.infra.CarMapper;
 import fr.esgi.rent_car.exception.ResourceNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,37 +15,37 @@ import java.util.List;
 public class CarJpaAdapter implements CarPersistencePort {
 
     private final CarRepository carRepository;
-    private final CarConverter carConverter;
+    private final CarMapper carMapper;
 
     public Car createCar(Car car){
-        return carConverter.convertToCar(carRepository.save(carConverter.convertCarToEntity(car)));
+        return carMapper.convertToCar(carRepository.save(carMapper.convertCarToEntity(car)));
     }
 
     public Car getCarById(String id){
-        return carConverter.convertToCar(carRepository.findCarById(id).orElseThrow(() -> new ResourceNotFoundException("This car is not found : {0}")));
+        return carMapper.convertToCar(carRepository.findCarById(id).orElseThrow(() -> new ResourceNotFoundException("This car is not found : {0}")));
     }
 
     public List<Car> findByLocation(String location){
-        return carConverter.convertToCarList(carRepository.findCarByLocation(location));
+        return carMapper.convertToCarList(carRepository.findCarByLocation(location));
     }
 
     public List<Car> findByOwner(String owner){
-        return carConverter.convertToCarList(carRepository.findCarByIdowner(owner));
+        return carMapper.convertToCarList(carRepository.findCarByIdowner(owner));
     }
 
     public List<Car> findAll(){
-        return carConverter.convertToCarList(carRepository.findAll());
+        return carMapper.convertToCarList(carRepository.findAll());
     }
 
     @Override
     public List<Car> findAllAvailableCars() {
-        return carConverter.convertToCarList(carRepository.findAllByAvailableTrue());
+        return carMapper.convertToCarList(carRepository.findAllByAvailableTrue());
     }
 
     public void deleteCar(String id) { carRepository.deleteCarById(id); }
 
     public Car update(Car car){
-        return carConverter.convertToCar(carRepository.save(carConverter.convertCarToEntity(car)));
+        return carMapper.convertToCar(carRepository.save(carMapper.convertCarToEntity(car)));
     }
 }
 

@@ -20,9 +20,6 @@ public interface RentController {
     @GetMapping("/all")
     List<RentDto> findAll();
 
-    @GetMapping("/car/id")
-    List<RentDto> findAllById_car(@PathVariable String idCar);
-
-    @GetMapping("/user/id")
-    List<RentDto> findAllByIdAndId_user(@PathVariable String idUser);
+    @GetMapping("/user/{idUser}")
+    List<RentDto> findAllByUserId(@PathVariable String idUser);
 }

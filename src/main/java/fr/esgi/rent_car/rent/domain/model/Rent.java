@@ -11,8 +11,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class Rent {
     private String id;
-    private String id_car;
-    private String id_user;
+    private String idcar;
+    private String iduser;
     private int nb_day;
     private Double price;
     private LocalDate start_date;

@@ -2,7 +2,7 @@ package fr.esgi.rent_car.car.service;
 
 import fr.esgi.rent_car.car.domain.model.CarDto;
 import fr.esgi.rent_car.car.domain.port.CarPersistencePort;
-import fr.esgi.rent_car.car.infra.CarConverter;
+import fr.esgi.rent_car.car.infra.CarMapper;
 import fr.esgi.rent_car.car.infra.web.model.CarCreationModel;
 import fr.esgi.rent_car.user.service.SessionService;
 import lombok.AllArgsConstructor;
@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class CarService {
     private final CarPersistencePort carPersistencePort;
-    private final CarConverter carConverter;
+    private final CarMapper carConverter;
     private final SessionService sessionService;
 
     public CarDto createCar(CarCreationModel carCreationModel){

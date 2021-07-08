@@ -26,10 +26,10 @@ public class RentEntity {
     private String id;
 
     @Column
-    private String id_car;
+    private String idcar;
 
     @Column
-    private String id_user;
+    private String iduser;
 
     @Column
     private int nb_day;
