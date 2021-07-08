@@ -26,7 +26,7 @@ class UserServiceTest {
     private static final String USERNAME_FOR_TEST = "username";
     private static final String FIRSTNAME_FOR_TEST = "firstname";
     private static final String LASTNAME_FOR_TEST = "lastname";
-    private static final LocalDate BIRTHDAY_FOR_TEST = LocalDate.of(2000, 2, 20);
+    private static final LocalDate BIRTHDAY_FOR_TEST = LocalDate.of(2000, 1, 20);
 
     private UserConverter userConverter;
     private UserPersistencePort userPersistencePort;
